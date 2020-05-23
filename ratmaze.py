@@ -2,6 +2,10 @@ import random
 import pygame
 
 pygame.init()
+pygame.font.init() # you have to call this at the start,
+
+myfont = pygame.font.SysFont('Comic Sans MS', 30)
+
 
 clock = pygame.time.Clock()
 
@@ -30,7 +34,7 @@ class Ratmaze:
         for x in range(maze_length):
             row = []
             for y in range(maze_width):
-                row.append(random.choice([0, 1, 1, 1, 1, 1, 1, 1, 1, 1]))
+                row.append(random.choice([0, 1, 1, 1, 1, 1, 1 ,1 ,1]))
             self.maze.append(row)
 
     def is_inside_maze(self, elem):
@@ -63,6 +67,9 @@ class Ratmaze:
         generator = self.solve()
 
         while self.running:
+
+            if self.maze[0][0] == 0 or self.maze[maze_length-1][maze_width-1] == 0:
+                self.maze_solved = False
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
