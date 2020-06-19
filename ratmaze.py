@@ -1,12 +1,6 @@
 import random
 import pygame
-
 pygame.init()
-pygame.font.init() # you have to call this at the start,
-
-myfont = pygame.font.SysFont('Comic Sans MS', 30)
-
-
 clock = pygame.time.Clock()
 
 blocksize = 20
